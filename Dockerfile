@@ -32,4 +32,7 @@ RUN apt-get install -y nodejs
 RUN npm install -g node-gyp
 
 RUN cd /tmp; curl -L https://github.com/jfurrow/flood/archive/${FLOOD_VER}.tar.gz | tar xzv; mv flood* /usr/local/flood;
- 
+
+COPY rootfs /
+
+ENTRYPOINT [ "entrypoint.sh" ]
